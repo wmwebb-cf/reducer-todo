@@ -11,3 +11,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.the-task button {
+  width: 80vw;
+  outline: none;
+}
+.add-task input button{
+  outline: none;
+}
