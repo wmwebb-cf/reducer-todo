@@ -5,9 +5,10 @@ export const addTask = newTask => {
     };
 };
 
-export const completed = () => {
+export const completed = (id) => {
     return {
-        type: "TOGGLE_COMPLETE"
+        type: "TOGGLE_COMPLETE",
+        payload: id
     }
 }
 

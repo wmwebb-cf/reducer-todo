@@ -32,7 +32,7 @@ export const todoListReducer = (state = initialState, action) => {
             // console.log(action.id)
             return {
                 ...state.tasks, 
-                tasks: state.tasks.map((task, index) => task.id === task.id ? { ...task, completed: !task.completed} : {...task, completed: task.completed})
+                tasks: state.tasks.map((task) => task.id === action.payload ? { ...task, completed: !task.completed} : {...task, completed: task.completed})
             };
         case 'CLEAR_COMPLETED':
             // console.log("clear btn clicked")

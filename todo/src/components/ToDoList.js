@@ -26,7 +26,7 @@ class ToDoList extends React.Component {
                             <h3>
                                 <span>#{task.id = index + 1}-</span>
                                 Task: {task.task} | 
-                                <span onClick={() => this.props.completed()}>
+                                <span onClick={() => this.props.completed(task.id)}>
                                 {task.completed ? <i className="fas fa-circle" /> : <i className="far fa-circle" />}
                                 </span>
                             </h3>
