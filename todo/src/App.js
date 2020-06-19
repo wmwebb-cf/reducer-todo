@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ToDoList from './components/ToDoList';
-// import { initialState, todoListReducer } from './reducers/todoListReducer';
+
 import './App.css';
 
 function App() {

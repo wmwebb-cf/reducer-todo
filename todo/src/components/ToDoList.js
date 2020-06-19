@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addTask } from '../actions/todoListActions';
+import { addTask, completed, clear } from '../actions/todoListActions';
 // import { initialState } from '../reducers/todoListReducer';
 
 class ToDoList extends React.Component {
@@ -12,16 +12,21 @@ class ToDoList extends React.Component {
         this.setState({ newTask: e.target.value });
     };
 
+    handleClick = e => {
+        e.preventDefault();
+    }
+
     render() {
+        //console.log(this.props.tasks)
         return (
             <div>
                 <div className='the-task'>
                     {this.props.tasks.map((task, index) => (
                         <div style={task.completed ? {color: 'red', textDecoration: 'line-through'} : {color: 'black'}} key={index}>
                             <h3>
-                                <span>#{task.id}-</span>
+                                <span>#{task.id = index + 1}-</span>
                                 Task: {task.task} | 
-                                <span onClick>
+                                <span onClick={() => this.props.completed()}>
                                 {task.completed ? <i className="fas fa-circle" /> : <i className="far fa-circle" />}
                                 </span>
                             </h3>
@@ -34,6 +39,9 @@ class ToDoList extends React.Component {
                     Add Task
                     </button>
                     <button onClick={() => null}>Cancel</button>
+                </div>
+                <div>
+                    <button onClick={() => this.props.clear()}>Clear Completed</button>
                 </div>
             </div>
         )
@@ -49,6 +57,6 @@ const mapStateToProps = state => {
   
   export default connect(
     mapStateToProps,
-    { addTask }
+    { addTask, completed, clear }
   )(ToDoList);
 
