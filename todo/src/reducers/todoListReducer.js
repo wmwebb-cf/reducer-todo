@@ -29,16 +29,13 @@ export const todoListReducer = (state = initialState, action) => {
                 tasks: [...state.tasks, newTask]
             };
         case 'TOGGLE_COMPLETE':
-            // conditional statement that compares "id" and toggles completed prop boolean
-            // console.log({...state.tasks.map((task) => {
-            //     return task}
-            // )});
+            // console.log(action.id)
             return {
                 ...state.tasks, 
-                tasks: [...state.tasks.map((task) => task === task ? {...task, completed: !task.completed} : task)]
+                tasks: state.tasks.map((task, index) => task.id === task.id ? { ...task, completed: !task.completed} : {...task, completed: task.completed})
             };
         case 'CLEAR_COMPLETED':
-            console.log("clear btn clicked")
+            // console.log("clear btn clicked")
             return {
                 ...state.tasks,
                 tasks: [...state.tasks.filter(task => !task.completed)]
